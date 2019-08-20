@@ -24,6 +24,24 @@ y vectores en los cuales su contenido son numeros complejos _
 ### Pruebas 🛠️
 _para cada una de las funcionalidades de este proyecto se creo su correspondiente prubea unitaria haciendo uso
 de JUnit y Maven
+
+## Ejecución de las pruebas 
+
+**Compiling**
+```
+$ mvn clean compile
+```
+**Packing**
+```
+$ mvn package
+```
+**Running the tests**
+```
+$ mvn test
+```
+![](src/site/resources/Cmd.png)
+
+
 ## Autores ✒️
 
 * **Nicolas Patiño** 
