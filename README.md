@@ -39,7 +39,7 @@ $ mvn package
 ```
 $ mvn test
 ```
-![](src/site/resources/cmd.png)
+![](src/resources/cmd.png)
 
 
 ## Autores ✒️
