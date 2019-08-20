@@ -68,8 +68,7 @@ public final class Funciones {
         }
         return sumavec;
     }
-    public Complejo getNumero(){
-        return respuesta;
-    }
+     
+
      
 }
