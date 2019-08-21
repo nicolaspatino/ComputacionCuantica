@@ -20,6 +20,21 @@ y vectores en los cuales su contenido son numeros complejos _
 * **Conjugado :** Calcula el conjugado de una tupla de numeros complejos.
 * **Conversion Polar y Cartesiano :** recibe una tuplas, un modulo y una fase o angulo y retorna un numero complejo.
 * **Retornar Fase :** calcula la fase o angulo de un numero complejo.
+* **Adición de vectores complejos. :** 
+* **Inversa de vectores complejos. :** 
+* **Multiplicación escalar de vectores complejos. :** 
+* **Adición de matrices complejos. :** 
+* **Multiplicación escalar de matrices complejas. :** 
+* **Matriz transpuesta:** 
+* **acción de una matriz sobre un vector.:** 
+* **Norma de matrices:** 
+* **Distancia entrematrices:** 
+* **Revisar si es unitaria:** 
+* **Revisar si es Hermitian:** 
+* **Producto tensor.:** 
+
+
+
 
 ### Pruebas 🛠️
 _para cada una de las funcionalidades de este proyecto se creo su correspondiente prubea unitaria haciendo uso
