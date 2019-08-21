@@ -20,18 +20,18 @@ y vectores en los cuales su contenido son numeros complejos _
 * **Conjugado :** Calcula el conjugado de una tupla de numeros complejos.
 * **Conversion Polar y Cartesiano :** recibe una tuplas, un modulo y una fase o angulo y retorna un numero complejo.
 * **Retornar Fase :** calcula la fase o angulo de un numero complejo.
-* **Adición de vectores complejos. :** 
-* **Inversa de vectores complejos. :** 
-* **Multiplicación escalar de vectores complejos. :** 
-* **Adición de matrices complejos. :** 
-* **Multiplicación escalar de matrices complejas. :** 
-* **Matriz transpuesta:** 
+* **Adición de vectores complejos. :** Esta funcionalidad realiza la adicion de dos vectores cuyo contenido sean numeros complejos
+* **Inversa de vectores complejos. :** Calcula la inversa aditiva de un vector de numeros complejos
+* **Multiplicación escalar de vectores complejos. :** Calcula el vector resultante al multiplicar dicho vector con un escalar.
+* **Adición de matrices complejos. :** Esta funcionalidad calcula la suma entre dos matrices de numeros complejos
+* **Multiplicación escalar de matrices complejas. :** Calcula la multiplicacion de un escalar por una matriz de numeros complejos
+* **Matriz transpuesta:** Calcula la transpuesta de una matriz de numeros complejos
 * **acción de una matriz sobre un vector.:** 
-* **Norma de matrices:** 
-* **Distancia entrematrices:** 
-* **Revisar si es unitaria:** 
-* **Revisar si es Hermitian:** 
-* **Producto tensor.:** 
+* **Norma de matrices:** calcula la norma de una matriz
+* **Distancia entrematrices:** calcula la distancia entre 2 matrices
+* **Revisar si es unitaria:** permite identificar si una matriz es unitaria
+* **Revisar si es Hermitian:** permite identificar si una matriz es hermitian
+* **Producto tensor.:** calcula el producto tensor en matrices de numeros complejos
 
 
 
