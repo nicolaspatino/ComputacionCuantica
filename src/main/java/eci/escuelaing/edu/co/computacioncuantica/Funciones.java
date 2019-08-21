@@ -6,6 +6,7 @@
 package eci.escuelaing.edu.co.computacioncuantica;
 
 import eci.escuelaing.edu.co.computacioncuantica.Complejo;
+import java.util.ArrayList;
 
 
 /**
@@ -68,7 +69,27 @@ public final class Funciones {
         }
         return sumavec;
     }
+     public Complejo escalarComplejo(double num , Complejo complejo){
+         complejo.setA(complejo.getA()*num);
+         complejo.setIm(complejo.getIm()*num);
+         return complejo;
+     }
+     public Complejo[] Inversa(Complejo[] vect){
+         return escalarVec(-1,vect);
+     }
+     public Complejo[] escalarVec(double num, Complejo[] vec){
+         for (Complejo i :vec){
+             i=escalarComplejo(num,i);
+         }
+         return vec;
+     }
+     public Complejo[][] SumaMat(Complejo [][] matA, Complejo[][] matB){
+         Complejo [][] rta=new Complejo[matA.length][matA[0].length];
+         for (int i=0; i<matA.length;i++){
+             rta[i]=sumaVecto(matA[i],matB[i]);
+         }
+         return rta;
+     }
      
-
      
 }

@@ -17,7 +17,6 @@ public final class Complejo {
        this.numeroA=numeroA;
        this.imaginario=imaginario;
    }
-   
    public double getA(){
        return numeroA;
    }
