@@ -44,5 +44,12 @@ public final class Complejo {
     	Complejo number = (Complejo) obj;
     	return this.numeroA == number.getA() && this.imaginario == number.getIm();
         }
+      @Override
+    public int hashCode(){
+        int hash=3;
+        hash = 57 * hash + (int) (Double.doubleToLongBits(this.numeroA) ^ (Double.doubleToLongBits(this.numeroA) >>> 32));
+        hash = 57 * hash + (int) (Double.doubleToLongBits(this.imaginario) ^ (Double.doubleToLongBits(this.imaginario) >>> 32));
+        return hash;
+    }
     
 }

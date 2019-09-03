@@ -62,6 +62,9 @@ public final class Funciones {
         double angulo = Math.toDegrees(rads);
         return angulo;
     }
+    
+    //Operaciones con vectores Complejos
+    
      public Complejo[] sumaVecto(Complejo[] vectorA,Complejo[] vectorB){
         Complejo[] sumavec= new Complejo[vectorB.length];
         for (int i = 0; i < sumavec.length; i++) {
@@ -75,13 +78,21 @@ public final class Funciones {
          return complejo;
      }
      public Complejo[] Inversa(Complejo[] vect){
-         return escalarVec(-1,vect);
+          Complejo [] respuesta = new Complejo[vect.length];
+        for (int i = 0; i < vect.length; i++){
+            respuesta[i] = new Complejo(vect[i].getA()*-1,vect[i].getIm()*-1);
+        }
+        return respuesta;
      }
-     public Complejo[] escalarVec(double num, Complejo[] vec){
-         for (Complejo i :vec){
-             i=escalarComplejo(num,i);
-         }
-         return vec;
+     public Complejo[] escalarVec(Complejo num, Complejo[] vec){
+        Complejo[] respuesta = new Complejo[vec.length];
+        for (int i = 0; i < respuesta.length; i++){
+           respuesta[i] = new Complejo(num.getA()*vec[i].getA(),num.getIm()*vec[i].getIm());
+        }
+        return respuesta;
+    
+        
+        //Operaciones con matrices Complejas
      }
      public Complejo[][] SumaMat(Complejo [][] matA, Complejo[][] matB){
          Complejo [][] rta=new Complejo[matA.length][matA[0].length];
@@ -191,7 +202,7 @@ public double DistacnciaMatrices(double[][] m1, double[][] m2) {
     }
 public  Complejo[] accionMatrizSobreVector(Complejo[][] m1,Complejo[] v) throws Exception{
         if (m1[0].length != v.length) {
-            throw new Exception("la longitud de las filas de la matriz es diferente a la longitud el vector");
+            throw new Exception("Error de tamaños");
 	} else {
             Complejo[] r = new Complejo[v.length];  
             Complejo s = new Complejo(0,0);
@@ -207,7 +218,7 @@ public  Complejo[] accionMatrizSobreVector(Complejo[][] m1,Complejo[] v) throws 
     }
     public  boolean matrizHermitiana(Complejo[][] m1) throws Exception {
            if (m1.length != m1[0].length) {
-               throw new Exception("la matriz no es cuadrada");
+               throw new Exception("No es una matriz valida");
            } else {
                return m1.equals(matrizAdjunta(m1));
            }
