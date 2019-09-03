@@ -90,6 +90,151 @@ public final class Funciones {
          }
          return rta;
      }
-     
-     
+     public Complejo[][] inversaDeMatriz(Complejo[][] x){
+        Complejo [][] inversa = new Complejo[x.length][x[0].length];
+        for (int i=0;i<inversa.length;i++){
+            for (int j=0;j<inversa[i].length;i++){
+                inversa[i][j]= new Complejo(x[i][j].getA()*-1,x[i][j].getIm()*-1);
+            }
+        }
+        return inversa;
+        
+        
+    }
+     public Complejo[][] multiplicacionEscalarPorMatriz(Complejo[][] x,Complejo c){
+        Complejo [][] matriz = new Complejo[x.length][x[0].length];
+        for (int i=0;i<matriz.length;i++){
+            for (int j=0;j<matriz[i].length;i++){
+                matriz[i][j] = new Complejo(c.getA()*x[i][0].getA(),c.getIm()*x[0][j].getIm());
+            }
+        }
+        return matriz;
+    }
+     public Complejo[][] matrizTranspuesta(Complejo[][] x){
+        for (int i=0;i<x.length;i++){
+            for (int j=0;j<x[i].length;i++){
+                x[i][j]=x[j][i];
+            }
+        }
+        return x;
+    }
+    public Complejo[][] matrizConjugada(Complejo[][] x){
+        Complejo [][] respuesta = new Complejo[x.length][x[0].length];
+        for (int i=0;i<respuesta.length;i++){
+            for (int j=0;j<respuesta[i].length;i++){
+                respuesta[i][j]= new Complejo(x[i][j].getA(),x[i][j].getIm()*-1);
+            }
+        }
+        return respuesta;
+    }
+    public double normaMatrices(double[][] matriz){
+	double[][] respuesta = new double[matriz.length][matriz[0].length];
+	for (int i = 0;i < respuesta.length;i++) {
+		for (int j = 0;j < respuesta.length;j++) {
+                    respuesta[i][j] = matriz[j][i];
+		}
+	}
+	double[][] r = new double[matriz.length][matriz[0].length];
+	double s = 0;
+	for (int i = 0; i < respuesta.length; i++) {
+		for (int j = 0; j < respuesta[0].length; j++) {
+			for (int k = 0; k < respuesta.length; k++) {
+				s = s + (respuesta[i][k] * matriz[i][j]);
+			}
+			r[i][j] = s;
+			s = 0;
+		}
+	}
+	double trace = 0;
+	for (int i = 0; i < r.length; i++) {
+		trace = trace + r[i][i];
+	}
+	return Math.sqrt(trace);
+    }
+        public Complejo[][] matrizAdjunta(Complejo[][] x){
+        Complejo [][] adjunta = new Complejo[x.length][x[0].length];
+        adjunta = matrizTranspuesta(x);
+        adjunta = matrizConjugada(adjunta);
+        return adjunta;
+    }
+public double DistacnciaMatrices(double[][] m1, double[][] m2) {
+
+        double ms[][] = new double[m1.length][m1[0].length];
+        for (int i = 0; i < ms.length; i++) {
+            for (int j = 0; j < ms[0].length; j++) {
+                ms[i][j] = m1[i][j] - m2[i][j];
+            }
+        }
+        double[][] mt = new double[ms.length][ms[0].length];
+        for (int i = 0; i < mt.length; i++) {
+            for (int j = 0; j < mt.length; j++) {
+                mt[i][j] = ms[j][i];
+            }
+        }
+        double[][] r = new double[mt.length][mt[0].length];
+        double s = 0;
+        for (int i = 0; i < mt.length; i++) {
+            for (int j = 0; j < mt[0].length; j++) {
+                for (int k = 0; k < mt.length; k++) {
+                    s = s + (mt[i][k] * ms[i][j]);
+                }
+                r[i][j] = s;
+                s = 0;
+            }
+        }
+        double trace = 0;
+        for (int i = 0; i < r.length; i++) {
+            trace = trace + r[i][i];
+        }
+        return Math.sqrt(trace);
+
+    }
+public  Complejo[] accionMatrizSobreVector(Complejo[][] m1,Complejo[] v) throws Exception{
+        if (m1[0].length != v.length) {
+            throw new Exception("la longitud de las filas de la matriz es diferente a la longitud el vector");
+	} else {
+            Complejo[] r = new Complejo[v.length];  
+            Complejo s = new Complejo(0,0);
+            for (int i = 0; i < v.length; i++) {
+                for (int j = 0; j < m1[0].length; j++) {
+                    s = Suma(s, Producto(m1[i][j], v[j]));
+		}
+		r[i] = s;
+		s = new Complejo(0,0);
+            }
+            return r;
+	}
+    }
+    public  boolean matrizHermitiana(Complejo[][] m1) throws Exception {
+           if (m1.length != m1[0].length) {
+               throw new Exception("la matriz no es cuadrada");
+           } else {
+               return m1.equals(matrizAdjunta(m1));
+           }
+       }
+    public  Complejo[][] Tensor(Complejo[][] m1, Complejo[][] m2) {
+        Complejo[][] r = new Complejo[m1.length * m2.length][ m1[0].length * m2[0].length];
+	Complejo[][] sp;
+	int m = 0;
+	int n = 0;
+	for (int i = 0; i < m1.length; i++) {
+            for (int j = 0; j < m1[0].length; j++) {
+                sp = this.multiplicacionEscalarPorMatriz(m2,m1[i][j]);
+		for(int k = 0; k < sp.length; k++) {
+                    for(int l = 0; l < sp[0].length; l++) {
+                        r[m][n] = sp[k][l];
+			n++;
+                    }
+                    m++;
+                    n = j * m2[0].length;
+		}
+                m = i * m2.length;
+		n = (j + 1) * m2[0].length;
+            }
+            m = (i + 1) * m2.length;
+            n = 0;
+        }
+	return r;
+    }
 }
+
