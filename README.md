@@ -56,6 +56,12 @@ $ mvn test
 ```
 ![](src/resources/cmd.png)
 
+# Pruebas unitarias para vectores y matrices
+
+* Se creo una prueba por cada metodo implementado en el laboratorio. 
+
+* Ejemplo:
+![](src/resources/test.PNG)
 
 ## Autores ✒️
 
