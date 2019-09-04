@@ -102,38 +102,40 @@ public final class Funciones {
          return rta;
      }
      public Complejo[][] inversaDeMatriz(Complejo[][] x){
-        Complejo [][] inversa = new Complejo[x.length][x[0].length];
-        for (int i=0;i<inversa.length;i++){
-            for (int j=0;j<inversa[i].length;i++){
-                inversa[i][j]= new Complejo(x[i][j].getA()*-1,x[i][j].getIm()*-1);
+        Complejo [][] respuesta = new Complejo[x.length][x[0].length];
+        for (int i=0;i<respuesta.length;i++){
+            for (int j=0;j<respuesta[i].length;j++){
+                respuesta[i][j]= new Complejo(x[i][j].getA()*-1,x[i][j].getIm()*-1);
             }
         }
-        return inversa;
-        
-        
+        return respuesta;
     }
+        
+        
+    
      public Complejo[][] multiplicacionEscalarPorMatriz(Complejo[][] x,Complejo c){
-        Complejo [][] matriz = new Complejo[x.length][x[0].length];
-        for (int i=0;i<matriz.length;i++){
-            for (int j=0;j<matriz[i].length;i++){
-                matriz[i][j] = new Complejo(c.getA()*x[i][0].getA(),c.getIm()*x[0][j].getIm());
+        Complejo [][] respuesta = new Complejo[x.length][x[0].length];
+        for (int i=0;i<x.length;i++){
+            for (int j=0;j<x[0].length;j++){
+                respuesta[i][j] = Producto(x[i][j], c);
             }
         }
-        return matriz;
+        return respuesta;
     }
      public Complejo[][] matrizTranspuesta(Complejo[][] x){
+        Complejo [][] respuesta = new Complejo[x.length][x[0].length];
         for (int i=0;i<x.length;i++){
-            for (int j=0;j<x[i].length;i++){
-                x[i][j]=x[j][i];
+            for (int j=0;j<x[0].length;j++){
+                respuesta[i][j]=x[j][i];
             }
         }
-        return x;
+        return respuesta;
     }
     public Complejo[][] matrizConjugada(Complejo[][] x){
         Complejo [][] respuesta = new Complejo[x.length][x[0].length];
         for (int i=0;i<respuesta.length;i++){
-            for (int j=0;j<respuesta[i].length;i++){
-                respuesta[i][j]= new Complejo(x[i][j].getA(),x[i][j].getIm()*-1);
+            for (int j=0;j<respuesta[0].length;j++){
+                respuesta[i][j]= conjugado(x[i][j]);
             }
         }
         return respuesta;
@@ -223,7 +225,26 @@ public  Complejo[] accionMatrizSobreVector(Complejo[][] m1,Complejo[] v) throws 
                return m1.equals(matrizAdjunta(m1));
            }
        }
-    public  Complejo[][] Tensor(Complejo[][] m1, Complejo[][] m2) {
+    public Complejo[][] matrizMultiplicacion(Complejo[][] m1,Complejo[][] m2) throws Exception {
+        if (m1.length != m2[0].length) {
+            throw new Exception("la matriz no es cuadrada");
+        } else {
+            Complejo[][] r = new Complejo[m1.length][m1[0].length];
+            Complejo s = new Complejo(0, 0);
+            for (int m = 0; m < m1.length; m++) {
+                for (int n = 0; n < m1[0].length; n++) {
+                    for (int i = 0; i < m1.length; i++) {
+                        Complejo temp = Producto(m1[m][i], m2[i][n]);
+                        s = Suma(s, temp);
+                    }
+                    r[m][n] = s;
+                    s = new Complejo(0, 0);
+                }
+            }
+            return r;
+        }
+    } 
+    public  Complejo[][] tensor(Complejo[][] m1, Complejo[][] m2) {
         Complejo[][] r = new Complejo[m1.length * m2.length][ m1[0].length * m2[0].length];
 	Complejo[][] sp;
 	int m = 0;
@@ -246,6 +267,15 @@ public  Complejo[] accionMatrizSobreVector(Complejo[][] m1,Complejo[] v) throws 
             n = 0;
         }
 	return r;
+    }
+    public boolean matrizUnitaria(Complejo[][] m1) throws Exception {
+        if (m1.length != m1[0].length) {
+            throw new Exception("la matriz no es cuadrada");
+        } else {
+            boolean flag;
+            flag = this.matrizMultiplicacion(m1, this.matrizAdjunta(m1)).equals(this.matrizMultiplicacion(this.matrizAdjunta(m1), m1));
+            return flag;
+        }
     }
 }
 
