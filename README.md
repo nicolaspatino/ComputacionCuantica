@@ -38,16 +38,7 @@ y vectores en los cuales su contenido son numeros complejos _
 
  # simulación de lo clásico a lo cuántico
  * **retos de programacion :**
-    * **Programming drill 3.1.1 :** program that performs our little marble experiment. The program should allow the user to enter a              Boolean matrix that describes the 
-
-ways that marbles move. Make sure that the matrix follows our requirement. The user
-should also be permitted to enter a starting state of how many marbles are on each
-
-vertex. Then the user enters how many time clicks she wants to proceed. The com-
-puter should then calculate and output the state of the system after those time clicks.
-
-We will make changes to this program later in the chapter.
-
+    * **Programming drill 3.1.1 :** program that performs our little marble experiment. The program should allow the user to enter a              Boolean matrix that describes the ways that marbles move. Make sure that the matrix follows our requirement. The user should            also be permitted to enter a starting state of how many marbles are on each vertex. Then the user enters how many time clicks            she wants to proceed. The computer should then calculate and output the state of the system after those time clicks.
 
 ### Pruebas 🛠️
 _para cada una de las funcionalidades de este proyecto se creo su correspondiente prubea unitaria haciendo uso
