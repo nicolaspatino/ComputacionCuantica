@@ -87,8 +87,11 @@ $ mvn package
 ```
 $ mvn test
 ```
-![](src/resources/test2.PNG)
 
+* Ejemplo:
+
+![](src/resources/test2.PNG)
+* compilacion pruebas:
 ![](src/resources/Capture.PNG)
  
 
