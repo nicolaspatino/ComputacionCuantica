@@ -88,7 +88,7 @@ $ mvn test
 ```
 ![](src/resources/test2.PNG)
 
-![](src/resources/capture.PNG)
+![](src/resources/Capture.PNG)
  
 
 ## Autores ✒️
