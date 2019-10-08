@@ -39,6 +39,10 @@ y vectores en los cuales su contenido son numeros complejos _
  # simulación de lo clásico a lo cuántico
  * **retos de programacion :**
     * **Programming drill 3.1.1 :** program that performs our little marble experiment. The program should allow the user to enter a              Boolean matrix that describes the ways that marbles move. Make sure that the matrix follows our requirement. The user should            also be permitted to enter a starting state of how many marbles are on each vertex. Then the user enters how many time clicks            she wants to proceed. The computer should then calculate and output the state of the system after those time clicks.
+    * **Programming drill 3.2.1 :** Modify your program from Programming Drill 3.1.1 so
+         that the entries in the matrices can be fractions as opposed to Boolean values.
+     * **Programming drill 3.2.2 :** What would happen if there were more than two slits?Write a program that asks a user to design a            multislit experiment. The user notes the number of slits and the number of targets to measure the bullets. Then the user
+         enters probabilities of the bullets’ moving from each slit to each target. An appropriate matrix is set up and then the matrix          is multiplied by itself. Have the program print the appropriate resulting matrix and vector.
 
 ### Pruebas 🛠️
 _para cada una de las funcionalidades de este proyecto se creo su correspondiente prubea unitaria haciendo uso
