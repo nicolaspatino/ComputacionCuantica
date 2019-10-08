@@ -7,6 +7,9 @@ package eci.escuelaing.edu.co.marbleSimulator;
 
 import eci.escuelaing.edu.co.computacioncuantica.Complejo;
 import eci.escuelaing.edu.co.computacioncuantica.Funciones;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -31,7 +34,7 @@ public class MarbleSimulator {
         return respuesta;
     }
     	
-    public Complejo[] ejercicio3(Complejo[][]matriz,Complejo[]estadoInicial,int clicks){
+    public Complejo[] fractions(Complejo[][]matriz,Complejo[]estadoInicial,int clicks){
         Complejo[] respuesta = new Complejo[estadoInicial.length];
         while (clicks!=0){
             for (int i = 0; i < estadoInicial.length ; i++) {
@@ -48,15 +51,33 @@ public class MarbleSimulator {
     }
 	
 	
-	public Complejo [][] programa4(Complejo [][] grafo, Complejo [][] estado, int clicks) throws Exception {
-		Complejo [][] estadof=estado;
-                Funciones app=new Funciones();
-		for(int i=0;i<clicks;i++) {
-                        estadof=app.matrizMultiplicacion(grafo,app.matrizTranspuesta(estado));			
-		}		
-		return estadof;
-	}
+	public static ArrayList<Object> bullets(int slits, int targets, Map p) throws Exception{
+        Complejo[][] matriz = new Complejo[slits+targets+1][slits+targets+1];
+        for(int i = 0; i < slits+targets+1; i++) {
+            for(int j = 0; j < slits+targets+1; j++) {
+                if(p.containsKey(Integer.toString(i) + " " + Integer.toString(j))) {
+                    matriz[j][i] = (Complejo) p.get(Integer.toString(i) + " " + Integer.toString(j));
+                } else {
+                    matriz[j][i] = new Complejo(0,0);
+                }
+            }
+        }
+        for (int i = 0; i < slits+1; i++) {
+            matriz[i][i] = new Complejo(0,0);
+        }
+        for (int i = slits + 1; i < slits+targets+1;i++) {
+            matriz[i][i] = new Complejo(1,0);
+        }
+        Complejo[] vector = new Complejo[slits+targets+1];
+        vector[0] = new Complejo(1, 0);
+        for (int i = 1; i < vector.length;i++) {
+            vector[i] = new Complejo(0,0);
+        }
+        ArrayList<Object> r = new ArrayList<Object>();
+        r.add(app.matrizMultiplicacion(matriz,matriz));
+        r.add(app.accionMatrizSobreVector(app.matrizMultiplicacion(matriz,matriz), vector));
+        return r;
+    }
 	
-
 }
 
