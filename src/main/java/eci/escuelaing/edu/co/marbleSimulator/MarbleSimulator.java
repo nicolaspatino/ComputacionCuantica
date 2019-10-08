@@ -15,7 +15,7 @@ import eci.escuelaing.edu.co.computacioncuantica.Funciones;
 public class MarbleSimulator {
     private static Funciones app= new Funciones();
         //Programming drill 3.1.1
-        public double[] programmingDrill311Y321(double[][]matriz,double[]estadoInicial,int clicks){
+        public double[] marble(double[][]matriz,double[]estadoInicial,int clicks){
         double [] respuesta = new double[estadoInicial.length];
         while(clicks!=0) {
             for (int i = 0; i < estadoInicial.length; i++) {
@@ -31,9 +31,23 @@ public class MarbleSimulator {
         return respuesta;
     }
     	
+    public Complejo[] ejercicio3(Complejo[][]matriz,Complejo[]estadoInicial,int clicks){
+        Complejo[] respuesta = new Complejo[estadoInicial.length];
+        while (clicks!=0){
+            for (int i = 0; i < estadoInicial.length ; i++) {
+                Complejo valor = new Complejo(0,0);
+                for (int j = 0; j < estadoInicial.length ; j++) {
+                    valor = app.Suma(valor,app.Producto(matriz[i][j],estadoInicial[j]));
+                }
+                respuesta[i]=valor;
+            }
+            System.arraycopy(respuesta, 0, estadoInicial, 0, estadoInicial.length);
+            clicks-=1;
+        }
+        return respuesta;
+    }
 	
 	
-	//Programa 3.3.1
 	public Complejo [][] programa4(Complejo [][] grafo, Complejo [][] estado, int clicks) throws Exception {
 		Complejo [][] estadof=estado;
                 Funciones app=new Funciones();
