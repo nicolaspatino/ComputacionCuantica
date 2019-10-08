@@ -18,10 +18,10 @@ public final class Funciones {
     public Funciones(){ 
     }
 
-    public static double Modulo(Complejo num){
+    public  double Modulo(Complejo num){
         return Math.sqrt(num.getA()*num.getA()+num.getIm()*num.getIm());
     }
-    public static Complejo Suma(Complejo a, Complejo b){
+    public  Complejo Suma(Complejo a, Complejo b){
         double flotante = a.getA()+b.getA();
         double imaginario = a.getIm()+b.getIm();
         return new Complejo(flotante,imaginario);
@@ -31,7 +31,7 @@ public final class Funciones {
         double imaginario = a.getIm()-b.getIm();
         return new Complejo(flotante,imaginario);
     }
-    public static Complejo Producto(Complejo a, Complejo b){
+    public  Complejo Producto(Complejo a, Complejo b){
         double flotante = a.getA()*b.getA()-a.getIm()*b.getIm();
         double imaginario = a.getA()*b.getIm()+a.getIm()*b.getA();
         return new Complejo(flotante,imaginario);
@@ -42,7 +42,7 @@ public final class Funciones {
         double imaginario = ( a.getIm()*b.getA()- a.getA()*b.getIm());
         return new Complejo(flotante1/flotante2,imaginario/flotante2);
     }
-    public static Complejo conjugado(Complejo c){
+    public  Complejo conjugado(Complejo c){
      return new Complejo(c.getA(), -c.getIm());
   }
     public Polar CartesianToPolar(Complejo x){
