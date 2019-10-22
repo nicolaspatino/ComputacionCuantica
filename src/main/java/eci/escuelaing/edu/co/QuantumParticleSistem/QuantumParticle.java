@@ -50,4 +50,8 @@ public class QuantumParticle {
 			return ans;
 	}
     
+    public static Complejo transicion(Complejo[] estadoInicial, Complejo[] estadoFinal){
+        Complejo ans = InnerProduct(estadoFinal, estadoInicial);
+        return ans;
+    }
 }
