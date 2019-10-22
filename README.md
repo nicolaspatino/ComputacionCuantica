@@ -74,6 +74,13 @@ programa que realiza nuestro pequeño experimento de mármol. El programa debe p
 
      * **RETO 3.3.1 :** Modifique su programa del reto 3.2.1 para que permita que las entradas sean números complejos en lugar de fracciones.
      * **RETO 3.3.2:**  Modifique su programa del reto 3.2.2 para que permita que las transiciones de las muchas rendijas a los muchos dispositivos de medición sean números complejos. Su programa debe identificar dónde hay fenómenos de interferencia.
+     * **Reto  4.1.1 :** Write a program that simulates the first quantum system described in this section. The user should be able to  specify how many points the particle can occupy (warning: keep the max number low, or you will fairly quickly run out ofmemory). The user will also specify a ket state vector by assigning its amplitudes.The program, when asked the likelihood of finding the particle at a given point, will perform the calculations described in Example 4.1.1. If the user enters two kets, thesystem will calculate the probability of transitioning from
+     * **Reto  4.2.1 :**Continúe su simulación de un sistema cuántico agregando observables en la imagen: el usuario ingresará una matriz cuadrada del tamaño apropiado,y un vector ket. El programa verificará que la matriz sea ermitaña y, de ser así, lo harácalcular el valor medio y la varianza de lo observable en el
+     * **Reto  4.3.1 :**Siguiente paso en la simulación: cuando el usuario ingresa a un observ capaz y un vector de estado, el programa evolverá la lista de valores propios del observable,el valor medio de lo observable en el estado y la probabilidad de que el estadotransición a cada uno de los estados propios. Opcional: trazar la probabilidad correspondiente
+     
+     * **Reto  4.4.1 :** Agregue dinámica a su computadora simulación de la partícula en una cuadrícula: el usuario debe ingresar una cantidad de pasos de tiempo n, y una secuencia correspondiente secuencia de matrices unitarias del tamaño apropiado. El programa luego calculará el vector de estado después de que se haya aplicado la secuencia completa Un.
+     
+     
 ### Pruebas 🛠️    
 **Compiling**
 ```
