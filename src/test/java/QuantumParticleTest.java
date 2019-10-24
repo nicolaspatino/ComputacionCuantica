@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author juan.moreno-mor
+ * @author Nicolas patino
  */
 public class QuantumParticleTest {
     private QuantumParticle app= new QuantumParticle();
